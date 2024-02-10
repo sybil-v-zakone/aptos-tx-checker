@@ -1,8 +1,9 @@
 import requests
 from loguru import logger
 
+from config import TOKENS
 from utils import change_mobile_ip, read_from_txt, save_to_json, get_token_balance
-from constants import WALLET_ADDRESSES_PATH, BLAST_REQUEST_URL, PROXIES_PATH, WAPAL_URL, TOKENS
+from constants import WALLET_ADDRESSES_PATH, BLAST_REQUEST_URL, PROXIES_PATH, WAPAL_URL
 
 if __name__ == "__main__":
     change_mobile_ip()
