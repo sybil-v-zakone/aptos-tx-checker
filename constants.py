@@ -1,28 +1,15 @@
+from core.token import Token
+
 WALLET_ADDRESSES_PATH = "data/wallet_addresses.txt"
 RESULT_JSON_PATH = "data/result.json"
 PROXIES_PATH = "data/proxies.txt"
 
 RPC_URL = ""
 
-BLAST_REQUEST_URL = RPC_URL + "/v1/accounts/{address}/transactions?start={start}&limit=100"
-WAPAL_URL = "https://marketplace-api.wapal.io/user/tokens/"
+RPC_TX_FETCH_URL = RPC_URL + "/v1/accounts/{address}/transactions?start={start}&limit=100"
+WAPAL_URL = "https://marketplace-api.wapal.io/user/tokens/{address}"
 
 COIN_STORE = "0x1::coin::CoinStore"
-
-
-class Token:
-    def __init__(
-            self,
-            contract_address: str,
-            decimals: int,
-            symbol: str
-    ):
-        self.contract_address = contract_address
-        self.decimals = decimals
-        self.symbol = symbol
-
-    def from_wei(self, value: int) -> int:
-        return value / 10 ** self.decimals
 
 
 APT_TOKEN = Token(
@@ -84,3 +71,53 @@ SOL_TOKEN = Token(
     decimals=8,
     symbol="SOL"
 )
+
+CONTRACTS = {
+    "pancakeswap": [
+        "0xc7efb4076dbe143cbcd98cfaaa929ecfc8f299203dfff63b95ccb6bfe19850fa"
+    ],
+    "liquidswap": [
+        "0x190d44266241744264b964a37b8f09863167a12d3e70cda39376cfb4e3561e12",
+        "0x163df34fccbf003ce219d3f1d9e70d140b60622cb9dd47599c25fb2f797ba6e"
+    ],
+    "sushiswap": [
+        "0x31a6675cbe84365bf2b0cbce617ece6c47023ef70826533bde5203d32171dc3c"
+    ],
+    "thalaswap": [
+        "0x48271d39d0b05bd6efca2278f22277d6fcc375504f9839fd73f74ace240861af"
+    ],
+    "econia": [
+        "0xc0deb00c405f84c85dc13442e305df75d1288100cdd82675695f6148c7ece51c"
+    ],
+    "tortuga": [
+        "0x8f396e4246b2ba87b51c0739ef5ea4f26515a98375308c31ac2ec1e42142a57f"
+    ],
+    "merkle": [
+        "0x5ae6789dd2fec1a9ec9cccfb3acaf12e93d432f0a3a42c92fe1a9d490b7bbc06"
+    ],
+    "amnis": [
+        "0x111ae3e5bc816a5e63c2da97d0aa3886519e0cd5e4b046659fa35796bd11542a"
+    ],
+    "ditto": [
+        "0xd11107bdf0d6d7040c6c0bfbdecb6545191fdf13e8d8d259952f53e1713f61b5"
+    ],
+    "wapal": [
+        "0x584b50b999c78ade62f8359c91b5165ff390338d45f8e55969a04e65d76258c9",
+        "0x6547d9f1d481fdc21cd38c730c07974f2f61adb7063e76f9d9522ab91f090dac"
+    ],
+    "topaz": [
+        "0x2c7bccf7b31baf770fdbcc768d9e9cb3d87805e255355df5db32ac9a669010a2"
+    ],
+    "bluemove": [
+        "0xd520d8669b0a3de23119898dcdff3e0a27910db247663646ad18cf16e44c6f5"
+    ],
+    "mercato": [
+        "0xe11c12ec495f3989c35e1c6a0af414451223305b579291fc8f3d9d0575a23c26"
+    ],
+    "swapgpt": [
+        "0x1c3206329806286fd2223647c9f9b130e66baeb6d7224a18c1f642ffe48f3b4c"
+    ],
+    "kanalabs": [
+        "0x9538c839fe490ccfaf32ad9f7491b5e84e610ff6edc110ff883f06ebde82463d"
+    ],
+}
