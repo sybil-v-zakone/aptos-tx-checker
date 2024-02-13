@@ -1,6 +1,7 @@
 import requests
 from loguru import logger
 
+from config import RPC_URL
 from constants import RPC_TX_FETCH_URL, CONTRACTS
 
 
@@ -12,7 +13,7 @@ def get_txs_on_account(address: str, proxy: dict) -> dict:
         tx_count = 0
 
         while True:
-            url = RPC_TX_FETCH_URL.format(address=address, start=start)
+            url = RPC_TX_FETCH_URL.format(rpc=RPC_URL,address=address, start=start)
             response = requests.get(url=url, proxies=proxy)
             response_data = response.json()
 

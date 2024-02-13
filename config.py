@@ -12,6 +12,9 @@ USE_MOBILE_PROXY = False
 # Ссылка для смены ip мобильных прокси.
 CHANGE_IP_URL = ""
 
+# RPC
+RPC_URL = ""
+
 # Какие токены нужно проверять.
 TOKENS = [
     THL_TOKEN,

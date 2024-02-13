@@ -5,8 +5,8 @@ import requests
 from loguru import logger
 from aptos_sdk.client import ApiError, ResourceNotFound
 
-from config import USE_MOBILE_PROXY, CHANGE_IP_URL, TOKENS, USE_PROXY
-from constants import RESULT_JSON_PATH, COIN_STORE, RPC_URL, Token, WALLET_ADDRESSES_PATH, PROXIES_PATH
+from config import USE_MOBILE_PROXY, CHANGE_IP_URL, TOKENS, USE_PROXY, RPC_URL
+from constants import RESULT_JSON_PATH, COIN_STORE, Token, WALLET_ADDRESSES_PATH, PROXIES_PATH
 
 
 def change_mobile_ip() -> None:

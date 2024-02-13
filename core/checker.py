@@ -3,7 +3,7 @@ from loguru import logger
 from core.nft_checker import get_nfts_on_account
 from core.total import get_total
 from core.tx_checker import get_txs_on_account
-from utils import get_tokens_balance_batch, save_to_json
+from utils import get_tokens_balance_batch, save_to_json, change_mobile_ip
 
 
 def run_checker(addresses: list, proxies: list):
@@ -11,6 +11,7 @@ def run_checker(addresses: list, proxies: list):
 
     for address in addresses:
         try:
+            change_mobile_ip()
             logger.debug(f"Wallet: {address}")
             data[f"{address}"] = {}
             current_wallet = data[f"{address}"]

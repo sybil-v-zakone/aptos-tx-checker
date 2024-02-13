@@ -4,9 +4,7 @@ WALLET_ADDRESSES_PATH = "data/wallet_addresses.txt"
 RESULT_JSON_PATH = "data/result.json"
 PROXIES_PATH = "data/proxies.txt"
 
-RPC_URL = ""
-
-RPC_TX_FETCH_URL = RPC_URL + "/v1/accounts/{address}/transactions?start={start}&limit=100"
+RPC_TX_FETCH_URL = "{rpc}/v1/accounts/{address}/transactions?start={start}&limit=100"
 WAPAL_URL = "https://marketplace-api.wapal.io/user/tokens/{address}"
 
 COIN_STORE = "0x1::coin::CoinStore"
