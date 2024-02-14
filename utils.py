@@ -1,6 +1,6 @@
 import json
 
-import pandas as pd
+from openpyxl import Workbook
 import requests
 from loguru import logger
 from aptos_sdk.client import ApiError, ResourceNotFound
@@ -100,6 +100,58 @@ def get_tokens_balance_batch(address: str, proxy: dict) -> dict:
 
 
 def save_to_exel(data: dict) -> None:
-    df = pd.json_normalize(data)
-    df = df.T
-    df.to_excel('result.xlsx', index=True)
+    wb = Workbook()
+    ws = wb.active
+
+    default_column_names = [
+        'address',
+        'pancakeswap',
+        'liquidswap',
+        'ditto',
+        'tortuga',
+        'sushiswap',
+        'mercato',
+        'merkle',
+        'wapal',
+        'topaz',
+        'thalaswap',
+        'bluemove',
+        'amnis',
+        'econia',
+        'swapgpt',
+        'kanalabs',
+        'tx_count',
+        'nft'
+    ]
+
+    token_column_names = []
+    for token in TOKENS:
+        token_column_names.append(token.symbol)
+
+    total_column_names = [
+        'quest_3_nft_count',
+        'quest_2_nft_count',
+        'quest_1_nft_count',
+        'aptos_domains_count'
+    ]
+
+    column_names = default_column_names + token_column_names + total_column_names
+
+    for col, name in enumerate(column_names, start=1):
+        ws.cell(row=1, column=col, value=name)
+
+    row = 2
+    for address, address_data in data.items():
+        ws.cell(row=row, column=1, value=address)
+        for key, value in address_data.items():
+            if isinstance(value, dict):
+                for sub_key, sub_value in value.items():
+                    ws.cell(row=row, column=column_names.index(sub_key) + 1, value=sub_value)
+            elif isinstance(value, list):
+                value = ', '.join(value)
+                ws.cell(row=row, column=column_names.index(key) + 1, value=value)
+            else:
+                ws.cell(row=row, column=column_names.index(key) + 1, value=value)
+        row += 1
+
+    wb.save("data/result.xlsx")

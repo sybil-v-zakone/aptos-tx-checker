@@ -1,7 +1,15 @@
 from constants import (
-    THL_TOKEN, THAPT_TOKEN, TAPT_TOKEN, SOL_TOKEN,
-    ALT_TOKEN, WETH_TOKEN, DITTO_TOKEN, USDT_TOKEN,
-    USDC_TOKEN, APT_TOKEN)
+    THL_TOKEN,
+    THAPT_TOKEN,
+    TAPT_TOKEN,
+    SOL_TOKEN,
+    ALT_TOKEN,
+    WETH_TOKEN,
+    DITTO_TOKEN,
+    USDT_TOKEN,
+    USDC_TOKEN,
+    APT_TOKEN
+)
 
 # Если вы используете прокси: True, если нет: False.
 USE_PROXY = False
