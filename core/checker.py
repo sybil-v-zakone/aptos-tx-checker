@@ -21,7 +21,7 @@ def run_checker(addresses: list, proxies: list):
             if len(proxies) > 0:
                 proxy = proxies[addresses.index(address)]
 
-            proxy = None if proxy is None else {"https": f"http://{proxy}"}
+            proxy = None if proxy is None else {"http": f"http://{proxy}"}
 
             current_wallet["transactions"] = get_txs_on_account(address=address, proxy=proxy)
 

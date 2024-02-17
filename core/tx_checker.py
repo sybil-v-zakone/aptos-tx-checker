@@ -14,6 +14,7 @@ def get_txs_on_account(address: str, proxy: dict) -> dict:
 
         while True:
             url = RPC_TX_FETCH_URL.format(rpc=RPC_URL,address=address, start=start)
+
             response = requests.get(url=url, proxies=proxy)
             response_data = response.json()
 

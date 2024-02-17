@@ -46,9 +46,6 @@ def save_to_json(result: dict | str) -> None:
 
 def account_resource(account_address, resource_type, proxy):
     request = f"{RPC_URL}/v1/accounts/{account_address}/resource/{resource_type}"
-
-    proxy = None if proxy is None else {"https": f"http://{proxy}"}
-
     response = requests.get(url=request, proxies=proxy)
 
     if response.status_code == 404:
