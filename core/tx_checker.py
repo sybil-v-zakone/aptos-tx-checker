@@ -32,6 +32,7 @@ def get_txs_on_account(address: str, proxy: dict) -> dict:
 
                 except Exception:
                     logger.error(f"Error payload at tx: {tx}")
+                    continue
 
             if tx_count_in_response == 0:
                 transactions["tx_count"] = tx_count

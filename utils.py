@@ -126,6 +126,7 @@ def save_to_exel(data: dict) -> None:
         token_column_names.append(token.symbol)
 
     total_column_names = [
+        'quest_4_nft_count',
         'quest_3_nft_count',
         'quest_2_nft_count',
         'quest_1_nft_count',
